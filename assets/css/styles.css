@@ -1,3 +1,59 @@
+* {
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+box-sizing: border-box;
+}
+
+header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+#timer {
+font-size: 24px;
+font-weight: bolder;
+}
+
 a {
 text-decoration: none;
+}
+
+h1 {
+font-size: 44px;}
+
+p {
+width: 60%;
+line-height: 1.5;
+font-size: 22px;
+}
+
+#container {
+display: flex;
+justify-content: center;
+font-weight: bold;
+}
+
+#wrapper {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+width: 50%;
+height: 50vh;
+}
+
+#startQuizBtn {
+width: 14%;
+height: 6%;
+font-size: 18px;
+font-weight: bold;
+background-color: rgb(112, 67, 216);
+color: white;
+border-radius: 7%;
+border-style: none;
+cursor: pointer;
+}
+
+#list {
+display: none;
 }

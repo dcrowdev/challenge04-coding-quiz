@@ -10,15 +10,22 @@
 <body>
     <header>
         <h2><a href="#">View Highscores</a></h2>
-        <span id="timer"></span>
+        <span id="timer">Time: <span id="timerCount">0</span></span>
     </header>
     
     <div id="container">
-
-
-
-
-
+       <div id="wrapper">
+        <h1 id="questionTitles">Coding Quiz Challenge</h1>
+        <p id="frontP">Try to answer the following code-related questions within the time limit. Keep in mind that inccorect answers will
+           penalize your score/time by ten seconds!</p>
+        <ol id="list">
+            <li id="answer1"></li>
+            <li id="answer2"></li>
+            <li id="answer3"></li>
+            <li id="answer4"></li>
+        </ol>
+        <button id="startQuizBtn" onclick="timer(); startQuestions()">Start Quiz</button>
+       </div>
     </div>
 
 
