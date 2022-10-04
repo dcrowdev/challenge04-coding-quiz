@@ -1,6 +1,6 @@
 var questions = [
 {
-"question1": "Commonly used data types DO NOT include:",
+"question": "Commonly used data types DO NOT include:",
 "a": "1. strings",
 "b": "2. booleans",
 "c": "3. alerts",
@@ -8,7 +8,7 @@ var questions = [
 "answer": "c"
 },
 {
-"question2": "The condition in an if / else statement is enclosed within ____.",
+"question": "The condition in an if / else statement is enclosed within ____.",
 "a": "1. quotes",
 "b": "2. curly brackets",
 "c": "3. parentheses",
@@ -16,7 +16,7 @@ var questions = [
 "answer": "c"
 },
 {
-"question3": "Arrays in JavaScript can be used to store ____.",
+"question": "Arrays in JavaScript can be used to store ____.",
 "a": "1. numbers and strings",
 "b": "2. other arrays",
 "c": "3. booleans",
@@ -24,7 +24,7 @@ var questions = [
 "answer": "d"
 },
 {
-"question4": "String values must be enclosed within ____ when being assigned to variables.",
+"question": "String values must be enclosed within ____ when being assigned to variables.",
 "a": "1. commas",
 "b": "2. curly brackets",
 "c": "3. quotes",
@@ -32,7 +32,7 @@ var questions = [
 "answer": "c"
 },
 {
-"question5": "A very usefool tool used during development and debugging for printing content to the debugger is:",
+"question": "A very usefool tool used during development and debugging for printing content to the debugger is:",
 "a": "1. JavaScript",
 "b": "2. terminal / bash",
 "c": "3. for loops",
@@ -49,7 +49,7 @@ var getAnswer1 = document.getElementById("a");
 var getAnswer2 = document.getElementById("b");
 var getAnswer3 = document.getElementById("c");
 var getAnswer4 = document.getElementById("d");
-var currentQuestion = questions[0];
+var currentQuestion = 0;
 
 
 
@@ -61,7 +61,7 @@ var currentQuestion = questions[0];
 
 // QUIZ FUNCTIONS
 function startQuestions() {
-getQuestionTitles.innerHTML = questions[0].question1;
+getQuestionTitles.innerHTML = questions[0].question;
 getStartQuizBtn.classList.add("hide");
 getList.classList.replace("hide", "list");
 getFontPageP.remove();
@@ -74,8 +74,9 @@ getAnswer4.innerHTML = questions[0].d;
 
 
 function nextQuestion() {
-currentQuestion = questions[currentQuestion] + 1;
-getQuestionTitles.innerHTML = currentQuestion[0];
+currentQuestion++;
+console.log(currentQuestion);
+getQuestionTitles.innerHTML = questions[currentQuestion].question;
 }
 
 
@@ -86,7 +87,9 @@ function answerClicked(e) {
 }
   if (e.target.dataset.value == "true") {
     alert("correct!");
-    } else {alert("false");}
+    } else {alert("false");
+  nextQuestion();
+}
 }
 
 
