@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,29 +8,40 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
     <title>Coding Quiz!</title>
 </head>
+
 <body>
     <header>
         <h2><a href="#">View Highscores</a></h2>
         <span id="timer">Time: <span id="timerCount">0</span></span>
     </header>
-    
+
     <div id="container">
-       <div id="wrapper">
-        <h1 id="questionTitles">Coding Quiz Challenge</h1>
-        <p id="frontP">Try to answer the following code-related questions within the time limit. Keep in mind that inccorect answers will
-           penalize your score/time by ten seconds!</p>
-        <ol id="list">
-            <li id="answer1"></li>
-            <li id="answer2"></li>
-            <li id="answer3"></li>
-            <li id="answer4"></li>
-        </ol>
-        <button id="startQuizBtn" onclick="timer(); startQuestions()">Start Quiz</button>
-       </div>
+        <div id="wrapper">
+            <h1 id="questionTitles">Coding Quiz Challenge</h1>
+            <p id="frontP">Try to answer the following code-related questions within the time limit. Keep in mind that
+                inccorect answers will
+                penalize your score/time by ten seconds!</p>
+                <ol class="hide" id="list1">
+                    <button class="answer-btn" id="answer1-btn">
+                        <li id="a" class="list-text" data-value="false"></li>
+                    </button>
+                    <button class="answer-btn" id="answer1-btn">
+                        <li id="b" class="list-text" data-value="false"></li>
+                    </button>
+                    <button class="answer-btn" id="answer1-btn">
+                        <li id="c" class="list-text" data-value="false"></li>
+                    </button>
+                    <button class="answer-btn" id="answer1-btn">
+                        <li id="d" class="list-text" data-value="false"></li>
+                    </button>
+                </ol>
+            <button id="startQuizBtn">Start Quiz</button>
+        </div>
     </div>
 
 
 
-  <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
