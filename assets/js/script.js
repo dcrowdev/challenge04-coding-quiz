@@ -57,7 +57,7 @@ var getHighScoresList = document.getElementById("highscores-list");
 var getGoBackBtn = document.getElementById("go-back-btn");
 var getClearHighscoresBtn = document.getElementById("clear-highscores-btn");
 var currentQuestion = 0;
-var timeLeft = 50;
+var timeLeft = 60;
 
 
 
@@ -154,17 +154,6 @@ storeHighScores();
 renderHighscores();
 
 }
-
-// function storeHighScores2() {
-// var initialsStorage = [];
-// var scoresStorage = [];
-// initialsStorage.push(document.getElementById("initial-input").value);
-// scoresStorage.push(timeLeft);
-// localStorage.setItem("initialsStorage", JSON.stringify(initialsStorage));
-// localStorage.setItem("scoresStorage", JSON.stringify(scoresStorage));
-// console.log(initialsStorage);
-// console.log(scoresStorage);
-// }
 
 function storeHighScores() {
 var highScoresStorageArr = JSON.parse(localStorage.getItem("highScoresStorage")) || [];
