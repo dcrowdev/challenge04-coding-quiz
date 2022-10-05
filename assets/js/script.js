@@ -58,10 +58,6 @@ var getGoBackBtn = document.getElementById("go-back-btn");
 var getClearHighscoresBtn = document.getElementById("clear-highscores-btn");
 var currentQuestion = 0;
 var timeLeft = 50;
-// var highScoresStorage = {
-// initials: document.getElementById("initial-input").value,
-// scores: timeLeft
-// };
 
 
 
@@ -95,6 +91,7 @@ getAnswer3.innerHTML = questions[currentQuestion].c;
 getAnswer4.innerHTML = questions[currentQuestion].d;
 }
 if (currentQuestion >= 5) {
+  currentQuestion = 0;
  gameOver();
 }
 }
@@ -112,7 +109,7 @@ function secondsInterval() {
       clearInterval(timer2);
       gameOver();
     }
-   }
+  }
 };
 
 
@@ -153,15 +150,41 @@ document.getElementById("header").style.display = "none";
 getEndDiv.style.display = "none";
 getHighScores.classList.remove("hide");
 getHighScores.style.display = "flex";
-// localStorage.setItem("highScoresStorage", JSON.stringify(highScoresStorage));
+storeHighScores();
 renderHighscores();
+
 }
 
+// function storeHighScores2() {
+// var initialsStorage = [];
+// var scoresStorage = [];
+// initialsStorage.push(document.getElementById("initial-input").value);
+// scoresStorage.push(timeLeft);
+// localStorage.setItem("initialsStorage", JSON.stringify(initialsStorage));
+// localStorage.setItem("scoresStorage", JSON.stringify(scoresStorage));
+// console.log(initialsStorage);
+// console.log(scoresStorage);
+// }
+
+function storeHighScores() {
+var highScoresStorageArr = JSON.parse(localStorage.getItem("highScoresStorage")) || [];
+var highScoresStorage = {
+initials: document.getElementById("initial-input").value,
+scores: timeLeft
+};
+highScoresStorageArr.push(highScoresStorage);
+console.log(highScoresStorageArr);
+localStorage.setItem("highScoresStorage", JSON.stringify(highScoresStorageArr));
+}
+
+
 function renderHighscores() {
-var getInitials = localStorage.getItem("initials");
-var getScores = localStorage.getItem("scores");
+var parsedStorage = JSON.parse(localStorage.getItem("highScoresStorage"));
+console.log(parsedStorage);
+// parsedStorage.sort()
+// for
 var li = document.createElement("li");
-// getHighScoresList.appendChild(li).innerHTML = getInitials + " - " + getScores;
+getHighScoresList.appendChild(li).innerHTML = parsedStorage[0].initials + " - " + parsedStorage[0].scores;
 }
 
 function goBack() {
