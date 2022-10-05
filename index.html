@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <h2><a href="#">View Highscores</a></h2>
         <span id="timer">Time: <span id="timerCount">0</span></span>
     </header>
@@ -37,8 +37,26 @@
                 </ol>
             <button id="startQuizBtn">Start Quiz</button>
         </div>
+        <span id="correctOrWrong" class="correctOrWrongText"></span>
     </div>
 
+    <div id="end-screen" class="hide">
+        <h2>All done!</h2>
+        <p>Your final score is <span id="finalScorePost">0</span></p>
+        <span>Enter initials:</span>
+        <textarea id="initial-input"></textarea>
+        <button class="answer-btn" id="submit-btn">Submit</button>
+    </div>
+
+    <div id="highscores" class="hide">
+        <h1>Highscores</h1>
+            <ol id="highscores-list">
+            </ol>
+        <div class="highscores-wrapper">
+        <button id="go-back-btn" class="highscores-btns answer-btn">Go Back</button>
+        <button id="clear-highscores-btn" class="highscores-btns answer-btn">Clear Highscores</button>
+        </div>
+    </div>
 
 
     <script src="./assets/js/script.js"></script>

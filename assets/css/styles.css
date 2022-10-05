@@ -29,7 +29,9 @@ font-size: 22px;
 
 #container {
 display: flex;
+flex-direction: column;
 justify-content: center;
+align-items: center;
 font-weight: bold;
 }
 
@@ -52,6 +54,7 @@ color: white;
 border-radius: 7%;
 border-style: none;
 cursor: pointer;
+border: .5px solid black;
 }
 
 .answer-btn {
@@ -65,6 +68,7 @@ border-radius: 7%;
 border-style: none;
 cursor: pointer;
 margin: 2% auto;
+border: .5px solid black;
 }
 
 .list {
@@ -82,4 +86,38 @@ text-align: left;
 
 .hide {
 display: none;
+}
+
+#end-screen {
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+}
+
+#highscores {
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+}
+
+#submit-btn {
+width: 8%;
+}
+
+#initial-input {
+font-size: 25px;
+text-align: center;
+}
+
+.highscores-wrapper {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.highscores-btns {
+height: 3em;
+margin: 0 10px;
 }
