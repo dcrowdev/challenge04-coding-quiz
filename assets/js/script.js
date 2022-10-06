@@ -32,7 +32,7 @@ var questions = [
 "answer": "c"
 },
 {
-"question": "A very usefool tool used during development and debugging for printing content to the debugger is:",
+"question": "A very useful tool used during development and debugging for printing content to the debugger is:",
 "a": "1. JavaScript",
 "b": "2. terminal / bash",
 "c": "3. for loops",
@@ -58,6 +58,7 @@ var getGoBackBtn = document.getElementById("go-back-btn");
 var getClearHighscoresBtn = document.getElementById("clear-highscores-btn");
 var currentQuestion = 0;
 var timeLeft = 60;
+document.getElementById("timerCount").innerHTML = timeLeft;
 
 // QUIZ FUNCTIONS
 function startQuestions() {
@@ -121,6 +122,10 @@ nextQuestion();
 
 // NO MORE QUESTIONS OR TIMER 0 FUNCTION
 function gameOver() {
+    if (timeLeft < 0) {
+      timeLeft = 0;
+      document.getElementById("timerCount").innerHTML = timeLeft;
+    }
     document.getElementById("finalScorePost").innerHTML = timeLeft;
     getEndDiv.classList.remove("hide");
     getEndDiv.style.display = "flex";
