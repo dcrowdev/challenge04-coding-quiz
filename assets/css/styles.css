@@ -12,6 +12,11 @@ align-items: center;
 .view-link {
 text-decoration: underline;
 cursor: pointer;
+color:rgb(112, 67, 216);
+}
+
+.view-link:hover {
+color:rgb(0, 0, 0);
 }
 
 #timer {
