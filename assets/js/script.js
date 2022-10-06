@@ -59,132 +59,138 @@ var getClearHighscoresBtn = document.getElementById("clear-highscores-btn");
 var currentQuestion = 0;
 var timeLeft = 60;
 
-
-
-
-
-
-
-
-
 // QUIZ FUNCTIONS
 function startQuestions() {
-getQuestionTitles.innerHTML = questions[0].question;
-getStartQuizBtn.classList.add("hide");
-getList.classList.replace("hide", "list");
-getFontPageP.remove();
-getAnswer1.innerHTML = questions[0].a;
-getAnswer2.innerHTML = questions[0].b;
-getAnswer3.innerHTML = questions[0].c;
-getAnswer4.innerHTML = questions[0].d;
-}
-
-
+  getQuestionTitles.innerHTML = questions[0].question;
+  getStartQuizBtn.classList.add("hide");
+  getList.classList.replace("hide", "list");
+  getFontPageP.remove();
+  getAnswer1.innerHTML = questions[0].a;
+  getAnswer2.innerHTML = questions[0].b;
+  getAnswer3.innerHTML = questions[0].c;
+  getAnswer4.innerHTML = questions[0].d;
+};
 
 function nextQuestion() {
-currentQuestion++;
-if (currentQuestion < 5) {
-getQuestionTitles.innerHTML = questions[currentQuestion].question;
-getAnswer1.innerHTML = questions[currentQuestion].a;
-getAnswer2.innerHTML = questions[currentQuestion].b;
-getAnswer3.innerHTML = questions[currentQuestion].c;
-getAnswer4.innerHTML = questions[currentQuestion].d;
-}
-if (currentQuestion >= 5) {
-  currentQuestion = 0;
- gameOver();
-}
-}
-
-// TIMER FUNCTIONS
-
-
-function timer() {
-var timer2 = setInterval(secondsInterval, 1000);
-
-function secondsInterval() {
-  timeLeft--;
-  document.getElementById("timerCount").innerHTML = timeLeft;
-    if (timeLeft < 1) {
-      clearInterval(timer2);
+  currentQuestion++;
+    if (currentQuestion < 5) {
+      getQuestionTitles.innerHTML = questions[currentQuestion].question;
+      getAnswer1.innerHTML = questions[currentQuestion].a;
+      getAnswer2.innerHTML = questions[currentQuestion].b;
+      getAnswer3.innerHTML = questions[currentQuestion].c;
+      getAnswer4.innerHTML = questions[currentQuestion].d;
+    }
+    if (currentQuestion > 5) {
       gameOver();
     }
-  }
+};
+
+// TIMER FUNCTION
+function timer() {
+var timer2 = setInterval(secondsInterval, 1000);
+    function secondsInterval() {
+        timeLeft--;
+        document.getElementById("timerCount").innerHTML = timeLeft;
+      if (timeLeft < 1 || currentQuestion >= 5) {
+        clearInterval(timer2);
+        gameOver();
+      }
+    }
 };
 
 
-
+//  EVENT FUNCTION
 function answerClicked(e) {
- if (e.target.getAttribute('id') == questions[currentQuestion].answer) {
-  e.target.dataset.value = "true";
+  if (e.target.getAttribute('id') == questions[currentQuestion].answer) {
+    e.target.dataset.value = "true";
   }
   if (e.target.dataset.value == "true") {
     document.getElementById("correctOrWrong").innerHTML = "Correct!";
     timeLeft += 10;
-    } else {
-  document.getElementById("correctOrWrong").innerHTML = "Sorry but Wrong!";
+  } else {
+    document.getElementById("correctOrWrong").innerHTML = "Sorry but Wrong!";
     timeLeft -= 10;
-    if (timeLeft < 0) {
-      timeLeft = 0;
-      gameOver();
-  }
+  if (timeLeft < 0) {
+    timeLeft = 0;
+    gameOver();
+   }
   }
   e.target.dataset.value = "false";
 nextQuestion();
 };
 
-
-
-
-
-
+// NO MORE QUESTIONS OR TIMER 0 FUNCTION
 function gameOver() {
-document.getElementById("finalScorePost").innerHTML = timeLeft;
-getEndDiv.classList.remove("hide");
-getEndDiv.style.display = "flex";
-getContainer.style.display = "none";
-}
-
-function submit() {
-document.getElementById("header").style.display = "none";
-getEndDiv.style.display = "none";
-getHighScores.classList.remove("hide");
-getHighScores.style.display = "flex";
-storeHighScores();
-renderHighscores();
-
-}
-
-function storeHighScores() {
-var highScoresStorageArr = JSON.parse(localStorage.getItem("highScoresStorage")) || [];
-var highScoresStorage = {
-initials: document.getElementById("initial-input").value,
-scores: timeLeft
+    document.getElementById("finalScorePost").innerHTML = timeLeft;
+    getEndDiv.classList.remove("hide");
+    getEndDiv.style.display = "flex";
+    getContainer.style.display = "none";
+    currentQuestion = 0;
 };
-highScoresStorageArr.push(highScoresStorage);
-console.log(highScoresStorageArr);
-localStorage.setItem("highScoresStorage", JSON.stringify(highScoresStorageArr));
-}
 
+// HIGHSCORES LINK FUNCTION
+function highScoresClick() {
+    getEndDiv.classList.remove("hide");
+    getEndDiv.style.display = "flex";
+    getContainer.style.display = "none";
+    document.getElementById("header").style.display = "none";
+    getEndDiv.style.display = "none";
+    getHighScores.classList.remove("hide");
+    getHighScores.style.display = "flex";
+  renderHighscores();
+};
 
+//SUBMIT BTN FUNCTION
+function submit() {
+    document.getElementById("header").style.display = "none";
+    getEndDiv.style.display = "none";
+    getHighScores.classList.remove("hide");
+    getHighScores.style.display = "flex";
+  storeHighScores();
+  renderHighscores();
+};
+
+// LOCAL STORAGE FUNCTION
+function storeHighScores() {
+    var highScoresStorageArr = JSON.parse(localStorage.getItem("highScoresStorage")) || [];
+    var highScoresStorage = {
+        initials: document.getElementById("initial-input").value,
+        scores: timeLeft
+    };
+      highScoresStorageArr.push(highScoresStorage);
+      localStorage.setItem("highScoresStorage", JSON.stringify(highScoresStorageArr));
+};
+
+// RENDER LOCAL STORAGE FUNCTION
 function renderHighscores() {
-var parsedStorage = JSON.parse(localStorage.getItem("highScoresStorage"));
-console.log(parsedStorage);
-// parsedStorage.sort()
-// for
-var li = document.createElement("li");
-getHighScoresList.appendChild(li).innerHTML = parsedStorage[0].initials + " - " + parsedStorage[0].scores;
-}
+    var scoresArr = [];
+    var parsedStorage = JSON.parse(localStorage.getItem("highScoresStorage"));
+      for (let i = 0; i < parsedStorage.length; i++) {
+        scoresArr.push(parsedStorage[i]);
+        scoresArr.sort(function (b,a) {
+      if (a.scores < b.scores) {
+        return -1;
+      }
+      if (a.scores > b.scores) {
+        return 0;}
+        })
+      }
+      for (let i = 0; i < scoresArr.length; i++) {
+        var li = document.createElement("li");
+        getHighScoresList.appendChild(li).innerHTML = scoresArr[i].initials + " - " + scoresArr[i].scores;
+      }
+};
 
+// GO BACK BTN FUNCTION
 function goBack() {
-location.reload();
-}
+  location.reload();
+};
 
+//  CLEAR HIGH SCORES (LOCAL STORAGE) BTN FUNCTION
 function clearHighScores() {
-
-}
-
-
+  localStorage.clear();
+  getHighScoresList.innerHTML = '';
+};
 
 // CALLBACKS
 getStartQuizBtn.addEventListener("click", timer);
