@@ -24,9 +24,9 @@ answers.
 
 Dylan Crowley:
 
-[Github](https://github.com/dcrowdev)
-[Twitter](https://twitter.com/dcrowdev)
-[LinkedIn](https://www.linkedin.com/in/dylan-crowley-3974b8252/)
+[Github](https://github.com/dcrowdev)  
+[Twitter](https://twitter.com/dcrowdev)  
+[LinkedIn](https://www.linkedin.com/in/dylan-crowley-3974b8252/)  
 dcrowdev1025@gmail.com
 
 ## License
