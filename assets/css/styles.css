@@ -3,6 +3,10 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
 box-sizing: border-box;
 }
 
+body {
+background-color: #f4f4f4;
+}
+
 header {
 display: flex;
 justify-content: space-between;
@@ -150,4 +154,14 @@ margin: 0 10px;
 
 #correctOrWrong {
 font-size: 28px;
+}
+
+.finalListScores {
+font-size: 30px;
+background-color: rgb(112, 67, 216);
+color: black;
+border: 2px solid black;
+border-radius: 5px;
+margin: 10px;
+padding: 10px 30px;
 }

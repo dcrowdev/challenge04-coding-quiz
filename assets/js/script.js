@@ -182,6 +182,7 @@ function renderHighscores() {
       }
       for (let i = 0; i < scoresArr.length; i++) {
         var li = document.createElement("li");
+        li.classList.add("finalListScores");
         getHighScoresList.appendChild(li).innerHTML = scoresArr[i].initials + " - " + scoresArr[i].scores;
       }
 };
@@ -194,7 +195,6 @@ function goBack() {
 //  CLEAR HIGH SCORES (LOCAL STORAGE) BTN FUNCTION
 function clearHighScores() {
   localStorage.clear();
-  getHighScoresList.innerHTML = '';
 };
 
 // CALLBACKS

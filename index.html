@@ -21,20 +21,20 @@
             <p id="frontP">Try to answer the following code-related questions within the time limit. Keep in mind that
                 inccorect answers will
                 penalize your score/time by ten seconds!</p>
-                <ol class="hide" id="list1">
-                    <button class="answer-btn" id="answer1-btn">
-                        <li id="a" class="list-text" data-value="false"></li>
-                    </button>
-                    <button class="answer-btn" id="answer1-btn">
-                        <li id="b" class="list-text" data-value="false"></li>
-                    </button>
-                    <button class="answer-btn" id="answer1-btn">
-                        <li id="c" class="list-text" data-value="false"></li>
-                    </button>
-                    <button class="answer-btn" id="answer1-btn">
-                        <li id="d" class="list-text" data-value="false"></li>
-                    </button>
-                </ol>
+            <ol class="hide" id="list1">
+                <button class="answer-btn" id="answer1-btn">
+                    <li id="a" class="list-text" data-value="false"></li>
+                </button>
+                <button class="answer-btn" id="answer1-btn">
+                    <li id="b" class="list-text" data-value="false"></li>
+                </button>
+                <button class="answer-btn" id="answer1-btn">
+                    <li id="c" class="list-text" data-value="false"></li>
+                </button>
+                <button class="answer-btn" id="answer1-btn">
+                    <li id="d" class="list-text" data-value="false"></li>
+                </button>
+            </ol>
             <button id="startQuizBtn">Start Quiz</button>
         </div>
         <span id="correctOrWrong" class="correctOrWrongText"></span>
@@ -44,17 +44,17 @@
         <h2>All done!</h2>
         <p>Your final score is <span id="finalScorePost">0</span></p>
         <span>Enter initials:</span>
-        <textarea id="initial-input"></textarea>
+        <textarea id="initial-input" maxlength="3"></textarea>
         <button class="answer-btn" id="submit-btn">Submit</button>
     </div>
 
     <div id="highscores" class="hide">
         <h1>Highscores</h1>
-            <ol id="highscores-list">
-            </ol>
+        <ol id="highscores-list">
+        </ol>
         <div class="highscores-wrapper">
-        <button id="go-back-btn" class="highscores-btns answer-btn">Go Back</button>
-        <button id="clear-highscores-btn" class="highscores-btns answer-btn">Clear Highscores</button>
+            <button id="go-back-btn" class="highscores-btns answer-btn">Go Back</button>
+            <button id="clear-highscores-btn" class="highscores-btns answer-btn">Clear Highscores</button>
         </div>
     </div>
 
